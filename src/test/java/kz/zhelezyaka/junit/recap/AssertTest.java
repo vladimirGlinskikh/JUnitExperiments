@@ -1,6 +1,7 @@
 package kz.zhelezyaka.junit.recap;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -36,6 +37,7 @@ public class AssertTest {
     }
 
     @Test
+    @Ignore("check that the test is ignored")
     public void assertSameTest() throws Exception {
         Integer integer = new Integer("7");
         Integer integerTwo = integer;
