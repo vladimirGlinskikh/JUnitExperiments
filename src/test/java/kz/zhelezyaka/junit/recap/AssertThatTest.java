@@ -43,4 +43,12 @@ public class AssertThatTest {
         assertThat(salary, hasItems(50.00, 200.00));
         assertThat(salary, not(hasItem(1.00)));
     }
+
+    @Test
+    public void verifyStrings() {
+        String name = "I check and experiments with JUnit";
+        assertThat(name, startsWith("I"));
+        assertThat(name, endsWith("JUnit"));
+        assertThat(name, containsString("experiments"));
+    }
 }
