@@ -2,6 +2,9 @@ package kz.zhelezyaka.junit.recap;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
@@ -30,5 +33,14 @@ public class AssertThatTest {
         assertThat(marks, not(anyOf(is(0.00), is(200.00))));
 
         assertThat(marks, not(allOf(is(1.00), is(100.00), is(30.00))));
+    }
+
+    @Test
+    public void verifyCollectionValues() {
+        List<Double> salary = Arrays.asList(50.0, 200.0, 500.0);
+
+        assertThat(salary, hasItem(50.00));
+        assertThat(salary, hasItems(50.00, 200.00));
+        assertThat(salary, not(hasItem(1.00)));
     }
 }
