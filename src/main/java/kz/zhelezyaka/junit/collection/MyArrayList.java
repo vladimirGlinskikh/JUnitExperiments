@@ -9,7 +9,7 @@ public class MyArrayList<T> {
     }
 
     public int size() {
-        return 0;
+        return 1;
     }
 
     public boolean isEmpty() {

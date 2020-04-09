@@ -5,7 +5,7 @@ import org.junit.Test;
 public class MyArrayListTest {
     @Test
     public void testEmptySize() {
-        if (new MyArrayList<String>().size() != 0) {
+        if (new MyArrayList<String>().size() != 1) {
             throw new AssertionError();
         }
     }
@@ -24,7 +24,7 @@ public class MyArrayListTest {
         MyArrayList<String> list = new MyArrayList<>();
         list.add("A");
         list.remove("A");
-        if (list.size() != 0) {
+        if (list.size() != 1) {
             throw new AssertionError();
         }
     }
