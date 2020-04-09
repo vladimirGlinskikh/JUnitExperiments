@@ -2,19 +2,17 @@ package kz.zhelezyaka.junit.collection;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 public class MyArrayListTest {
     @Test
     public void testEmptySize() {
-        if (new ArrayList<String>().size() != 0) {
+        if (new MyArrayList<String>().size() != 0) {
             throw new AssertionError();
         }
     }
 
     @Test
-    public void testEmptyOne() {
-        ArrayList<String> list = new ArrayList<>();
+    public void testSizeAfterAdd() {
+        MyArrayList<String> list = new MyArrayList<>();
         list.add("A");
         if (list.size() != 1) {
             throw new AssertionError();
@@ -23,7 +21,7 @@ public class MyArrayListTest {
 
     @Test
     public void testEmptyAddRemoveSame() {
-        ArrayList<String> list = new ArrayList<>();
+        MyArrayList<String> list = new MyArrayList<>();
         list.add("A");
         list.remove("A");
         if (list.size() != 0) {
@@ -33,7 +31,7 @@ public class MyArrayListTest {
 
     @Test
     public void testEmptyAddRemoveOther() {
-        ArrayList<String> list = new ArrayList<>();
+        MyArrayList<String> list = new MyArrayList<>();
         list.add("A");
         list.remove("B");
         if (list.size() != 1) {
@@ -43,7 +41,7 @@ public class MyArrayListTest {
 
     @Test
     public void testEmptyAddNull() {
-        ArrayList<String> list = new ArrayList<>();
+        MyArrayList<String> list = new MyArrayList<>();
         list.add(null);
         if (list.size() != 1) {
             throw new AssertionError();
