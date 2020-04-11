@@ -5,17 +5,17 @@ import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static junitparams.JUnitParamsRunner.$;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 @RunWith(JUnitParamsRunner.class)
 public class MoneyParameterizedTest {
 
     private static final Object[] getMoney() {
-        return new Object[]{
-                new Object[]{10, "USD"},
-                new Object[]{20, "EUR"}
-        };
+        return $(
+                $(10, "USD"),
+                $(20, "EUR")
+        );
     }
 
     @Test
