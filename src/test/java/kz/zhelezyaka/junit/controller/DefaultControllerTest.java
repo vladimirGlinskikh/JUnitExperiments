@@ -3,7 +3,7 @@ package kz.zhelezyaka.junit.controller;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
 public class DefaultControllerTest {
     private DefaultController controller;
@@ -46,5 +46,16 @@ public class DefaultControllerTest {
         RequestHandler handler2 = controller.getHandler(request);
         assertSame("Handler we set in controller should be the " +
                 "same handler we get", handler2, handler);
+    }
+
+    @Test
+    public void testProcessRequest() {
+        Request request = new SampleRequest();
+        RequestHandler handler = new SampleHandler();
+        controller.addHandler(request, handler);
+        Response response = controller.processRequest(request);
+        assertNotNull("Must not return a null response", response);
+        assertEquals("Response should be of type SampleResponse",
+                SampleResponse.class, response.getClass());
     }
 }
