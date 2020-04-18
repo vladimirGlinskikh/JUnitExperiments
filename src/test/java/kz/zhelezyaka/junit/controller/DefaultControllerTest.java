@@ -65,7 +65,6 @@ public class DefaultControllerTest {
     public void testProcessRequest() {
         Response response = controller.processRequest(request);
         assertNotNull("Must not return a null response", response);
-        assertEquals("Response should be of type SampleResponse",
-                SampleResponse.class, response.getClass());
+        assertEquals(new SampleResponse(), response);
     }
 }
