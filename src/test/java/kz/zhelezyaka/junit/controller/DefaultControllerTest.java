@@ -19,10 +19,20 @@ public class DefaultControllerTest {
     }
 
     private class SampleRequest implements Request {
+        private static final String DEFAULT_NAME = "Test";
+        private String name;
+
+        public SampleRequest(String name) {
+            this.name = name;
+        }
+
+        public SampleRequest() {
+            this(DEFAULT_NAME);
+        }
 
         @Override
         public String getName() {
-            return "Test";
+            return this.name;
         }
     }
 
@@ -74,5 +84,16 @@ public class DefaultControllerTest {
         Response response = controller.processRequest(request);
         assertNotNull("Must not return a null response", response);
         assertEquals(new SampleResponse(), response);
+    }
+
+    @Test
+    public void testProcessRequestAnswersErrorResponse() {
+        SampleRequest request = new SampleRequest("testError");
+        SampleExceptionHandler handler = new SampleExceptionHandler();
+        controller.addHandler(request, handler);
+        Response response = controller.processRequest(request);
+
+        assertNotNull("Must not return a null response", response);
+        assertEquals(ErrorResponse.class, response.getClass());
     }
 }
