@@ -7,6 +7,16 @@ import static org.junit.Assert.*;
 
 public class DefaultControllerTest {
     private DefaultController controller;
+    private Request request;
+    private RequestHandler handler;
+
+    @Before
+    public void instantiate() throws Exception {
+        controller = new DefaultController();
+        request = new SampleRequest();
+        handler = new SampleHandler();
+        controller.addHandler(request, handler);
+    }
 
     private class SampleRequest implements Request {
 
@@ -28,21 +38,8 @@ public class DefaultControllerTest {
 
     }
 
-    @Before
-    public void instantiate() throws Exception {
-        controller = new DefaultController();
-    }
-
-    @Test
-    public void testMethod() {
-        throw new RuntimeException("implement me!");
-    }
-
     @Test
     public void testAddHandler() {
-        Request request = new SampleRequest();
-        RequestHandler handler = new SampleHandler();
-        controller.addHandler(request, handler);
         RequestHandler handler2 = controller.getHandler(request);
         assertSame("Handler we set in controller should be the " +
                 "same handler we get", handler2, handler);
@@ -50,9 +47,6 @@ public class DefaultControllerTest {
 
     @Test
     public void testProcessRequest() {
-        Request request = new SampleRequest();
-        RequestHandler handler = new SampleHandler();
-        controller.addHandler(request, handler);
         Response response = controller.processRequest(request);
         assertNotNull("Must not return a null response", response);
         assertEquals("Response should be of type SampleResponse",
