@@ -54,6 +54,14 @@ public class DefaultControllerTest {
         }
     }
 
+    public class SampleExceptionHandler implements RequestHandler {
+
+        @Override
+        public Response process(Request request) throws Exception {
+            throw new Exception("error processing request");
+        }
+    }
+
     @Test
     public void testAddHandler() {
         RequestHandler handler2 = controller.getHandler(request);
