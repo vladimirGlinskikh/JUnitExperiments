@@ -6,9 +6,9 @@ public class App {
     }
 
     private static void f(int value) {
-        System.out.print(" " + value);
         if (value < 5) {
             f(2 * value);
         }
+        System.out.print(" " + value);
     }
 }
