@@ -32,7 +32,11 @@
             <version>1.0.4</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>5.11.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
