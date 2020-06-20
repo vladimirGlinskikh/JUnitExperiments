@@ -1,6 +1,14 @@
 package core.displayNameAnnotation;
 
 public class SUT {
+    public SUT(String ourSystemUnderTest) {
+
+    }
+
+    public SUT() {
+
+    }
+
     public String hello() {
         return "Hello!";
     }
@@ -11,5 +19,13 @@ public class SUT {
 
     public String bye() {
         return "Bye!";
+    }
+
+    public boolean canReceiveRegularWork() {
+        return false;
+    }
+
+    public boolean canReceiveAdditionalWork() {
+        return true;
     }
 }
