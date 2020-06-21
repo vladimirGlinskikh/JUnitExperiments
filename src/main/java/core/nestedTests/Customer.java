@@ -11,6 +11,9 @@ public class Customer {
     private String middleName;
     private Date becomeCustomer;
 
+    public Customer(String customer_name) {
+    }
+
     public static class Builder {
 
         private Gender gender;
