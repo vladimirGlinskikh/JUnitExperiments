@@ -1,4 +1,4 @@
-package architecture.differences;
+package migrating.differences;
 
 public class SUT {
     public SUT(String s) {

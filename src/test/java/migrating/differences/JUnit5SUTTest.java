@@ -1,4 +1,4 @@
-package architecture.differences;
+package migrating.differences;
 
 import org.junit.jupiter.api.*;
 
