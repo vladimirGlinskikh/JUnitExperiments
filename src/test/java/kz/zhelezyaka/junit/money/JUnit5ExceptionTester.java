@@ -10,6 +10,12 @@ public class JUnit5ExceptionTester {
     @Test
     public void expectArithmeticException(){
         assertThrows(ArithmeticException.class,
-                () -> calculator.divide(6, 0));
+                () -> calculator.divide(6.0, 0.0));
+    }
+
+    @Test
+    public void expectIllegalArgumentException(){
+        assertThrows(IllegalArgumentException.class,
+                () -> calculator.sqrt(-1));
     }
 }
